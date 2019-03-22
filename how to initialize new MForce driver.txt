@@ -1,0 +1,24 @@
+new thermionics motor driver (MForce driver):
+
+i)	connect ONLY new driver
+	disable party mode (PY=0)
+	use the not party mode (PY=0) end of command sign:
+    	PY=1 -> Line Feed [\n]
+      	PY=0 -> Carriage Return [\r]
+	print the device identifier DN (should be "!", default)
+	set DN to desired value, e.g. DN="3" (use "" when setting!!!)
+	turn party mode back on (PY=1)
+	[only then will this driver work together with the other drivers later on]
+	save to non-volotile memory (NVM) (S command)
+	
+ii)	put all drivers in their respective place (1, 2, 3, 4)
+	in the thermionics control box
+	turn on box
+	check with print firmware command (e.g. 3PR\sVR\n)
+	if all drivers are communicating in party mode
+
+iii)	set all other parameters parameters to the thermionics default parameters
+	for the respective replaced driver: 	HC=15 holding current (default 5)
+						RC=75 run current (default 25)
+						MS=64 mircosteps (default 256)
+	save for all new drivers (e.g. 3S\n)
